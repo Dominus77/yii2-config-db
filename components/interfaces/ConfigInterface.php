@@ -20,6 +20,14 @@ namespace modules\config\components\interfaces;
  *              // etc.
  *          ];
  *      }
+ *
+ *      public static function getReplace()
+ *      {
+ *          return [
+ *              'name' => 'SITE_NAME',
+ *              // etc.
+ *          ];
+ *      }
  * }
  *
  * @package modules\config\components\interfaces
@@ -31,4 +39,10 @@ interface ConfigInterface
      * @return array
      */
     public static function findParams();
+
+    /**
+     * Set associate key config app to params
+     * @return array
+     */
+    public static function getReplace();
 }

@@ -23,4 +23,12 @@ class ConfigParams implements ConfigInterface
     {
         return [];
     }
+
+    /**
+     * @return array
+     */
+    public static function getReplace()
+    {
+        return [];
+    }
 }
