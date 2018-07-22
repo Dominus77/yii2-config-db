@@ -5,9 +5,9 @@ namespace modules\config\console;
 use Yii;
 use yii\console\Controller;
 use yii\helpers\ArrayHelper;
-use console\components\helpers\Console;
-use modules\config\traits\ModuleTrait;
 use yii\base\InvalidConfigException;
+use modules\config\components\helpers\Console;
+use modules\config\traits\ModuleTrait;
 use modules\config\Module;
 
 /**
