@@ -5,10 +5,9 @@ namespace modules\config\controllers;
 use Yii;
 use yii\base\Model;
 use yii\web\Controller;
-use dominus77\sweetalert2\Alert;
 use yii\filters\AccessControl;
 use modules\config\models\Config;
-use modules\rbac\models\Permission;
+// use modules\rbac\models\Permission;
 use modules\config\Module;
 
 /**
@@ -38,7 +37,7 @@ class DefaultController extends Controller
             'rules' => [
                 [
                     'allow' => true,
-                    'roles' => [Permission::PERMISSION_MANAGER_CONFIG]
+                    'roles' => ['@'] // Permission::PERMISSION_MANAGER_CONFIG
                 ],
             ],
         ];
@@ -54,13 +53,7 @@ class DefaultController extends Controller
             foreach ($settings as $setting) {
                 $setting->save(false);
             }
-            Yii::$app->session->setFlash(Alert::TYPE_SUCCESS, [
-                [
-                    'title' => Module::t('module', 'Saving settings'),
-                    'text' => Module::t('module', 'Settings successfully saved.'),
-                    'timer' => 3000,
-                ]
-            ]);
+            Yii::$app->session->setFlash('success', Module::t('module', 'Settings successfully saved.'));
         }
 
         return $this->render('update', [
