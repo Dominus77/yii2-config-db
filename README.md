@@ -320,6 +320,9 @@ php yii config/init/up
 ```
 php yii config/init/down
 ```
+> Данные команды необходимо выполнять каждый раз, когда добавляются новые
+> или удаляются лишние параметры в классе Params
+
 ### Ссылка на редактирование в backend
 ```
 <?= \yii\helpers\Url::to(['/config/default/update']) ?>
