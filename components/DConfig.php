@@ -76,6 +76,14 @@ class DConfig extends Component
     }
 
     /**
+     * @return array
+     */
+    public function getAll()
+    {
+        return $this->data;
+    }
+
+    /**
      * @param string $key
      * @return mixed
      * @throws InvalidConfigException

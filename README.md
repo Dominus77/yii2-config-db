@@ -178,6 +178,139 @@ $config = [
 В текущем исполнении заданы базовые параметры, такие как name, language, timeZone.
 Для добавления своих параметров можно создать своё поведение и подключить его вместо [[\modules\config\components\behaviors\ConfigBehavior]].
 
+Для того что бы не писать всё время присваивание значений в поведении, можно поступить следующим образом,
+в класс Params, в котором мы задаём параметры, добавить метод getReplace()
+```
+<?php
+
+namespace backend\models;
+
+use Yii;
+use modules\config\models\ConfigParams;
+
+class Params extends ConfigParams
+{
+    /**
+     * @return array
+     */
+    public static function findParams()
+    {
+        return [
+            [
+                'param' => 'SITE_NAME',
+                'label' => 'Site Name',
+                'value' => '',
+                'type' => self::FIELD_TYPE_STRING,
+                'default' => 'My Site',
+            ],
+            [
+                'param' => 'SITE_TIME_ZONE',
+                'label' => 'Timezone',
+                'value' => '',
+                'type' => self::FIELD_TYPE_STRING,
+                'default' => 'Europe/Moscow',
+            ],
+            [
+                'param' => 'SITE_LANGUAGE',
+                'label' => 'Language',
+                'value' => '',
+                'type' => self::FIELD_TYPE_STRING,
+                'default' => 'ru',
+            ],
+            [
+                'param' => 'ADMIN_EMAIL',
+                'label' => 'Email administrator',
+                'value' => '',
+                'type' => self::FIELD_TYPE_STRING,
+                'default' => 'admin@example.loc',
+            ],
+            [
+                'param' => 'SUPPORT_EMAIL',
+                'label' => 'Email support',
+                'value' => '',
+                'type' => self::FIELD_TYPE_STRING,
+                'default' => 'support@example.loc',
+            ],
+        ];
+    }
+    
+    /**
+     * Ассоциируем ключи конфига с нашими параметрами для замены
+     * @return array
+     */
+    public static function getReplace()
+    {
+        return [
+            'name' => 'SITE_NAME',
+            'timeZone' => 'SITE_TIME_ZONE',
+            'language' => 'SITE_LANGUAGE',
+            'adminEmail' => 'ADMIN_EMAIL',
+            'supportEmail' => 'SUPPORT_EMAIL',
+        ];
+    }
+}
+
+```
+и модифицировать наше поведение следующим образом:
+```
+<?php
+
+namespace common\components\behaviors;
+
+use Yii;
+use yii\base\Behavior;
+use yii\console\Controller;
+use yii\helpers\ArrayHelper;
+use yii\web\Application;
+use backend\models\Params;
+
+/**
+ * Class ConfigBehavior
+ * @package common\components\behaviors
+ */
+class ConfigBehavior extends Behavior
+{
+    /**
+     * @inheritdoc
+     */
+    public function events()
+    {
+        return [
+            Controller::EVENT_BEFORE_ACTION => 'setConfig'
+        ];
+    }
+
+    /**
+     * Set config
+     */
+    public function setConfig()
+    {
+        /** @var Application $app */
+        $app = $this->owner;
+        $this->setParams($app);
+    }
+
+    /**
+     * Set params
+     * @param Application $app
+     */
+    private function setParams(Application $app)
+    {
+        $array = Yii::$app->config->getAll();
+        $replace = Params::getReplace();
+        foreach ($replace as $key => $value) {
+            if (isset($app->{$key}))
+                $app->{$key} = ArrayHelper::getValue($array, $value);
+            if (isset($app->params[$key])) {
+                $app->params[$key] = ArrayHelper::getValue($array, $value);
+            }
+        }
+    }
+}
+
+```
+Теперь параметры и ассоциации можно определять только в одном файле Params, всё остальное выполнит наше поведение.
+
 ### Консольные команды
 Для заполнения базы данных установленными параметрами
 ```
