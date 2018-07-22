@@ -60,7 +60,7 @@ class InitController extends Controller
      */
     public function actionDown()
     {
-        $params = ArrayHelper::getColumn($this->params::findParams() , 'param');
+        $params = ArrayHelper::getColumn($this->params::findParams(), 'param');
         Yii::$app->config->delete($params);
         echo $this->log(true);
     }
