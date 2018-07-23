@@ -53,7 +53,7 @@ $config = [
         ],
         //...
     ],
-    // Подключаем поведение для применения наших параметров
+    // Подключаем поведение для замены параметров конфигурации нашими параметрами
     'as beforeConfig' => [
         'class' => '\modules\config\components\behaviors\ConfigBehavior',
     ],
@@ -85,7 +85,7 @@ $config = [
 // frontend\config\main.php
 
 $config = [    
-    // Подключаем поведение для применения наших параметров
+    // Подключаем поведение для замены параметров конфигурации нашими параметрами
     'as beforeConfig' => [
         'class' => '\modules\config\components\behaviors\ConfigBehavior',
     ],
