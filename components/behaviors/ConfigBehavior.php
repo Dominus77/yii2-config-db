@@ -72,7 +72,7 @@ class ConfigBehavior extends Behavior
      */
     private function setLanguage(Application $app)
     {
-        if (isset($app->language)) {
+        if (isset($app->language) && !YII_ENV_TEST) {
             $app->language = Yii::$app->config->get('SITE_LANGUAGE');
         }
     }
