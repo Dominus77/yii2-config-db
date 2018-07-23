@@ -51,7 +51,7 @@ $config = [
         //...
     ],
     // Подключаем поведение для применения наших параметров
-    'as afterConfig' => [
+    'as beforeConfig' => [
         'class' => '\modules\config\components\behaviors\ConfigBehavior',
     ],
     //...    
@@ -83,7 +83,7 @@ $config = [
 
 $config = [    
     // Подключаем поведение для применения наших параметров
-    'as afterConfig' => [
+    'as beforeConfig' => [
         'class' => '\modules\config\components\behaviors\ConfigBehavior',
     ],
     //...    
