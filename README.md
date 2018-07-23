@@ -48,7 +48,7 @@ $config = [
         'config' => [
             'class' => 'modules\config\Module',
             'params' => [
-                'accessRoles' => ['@'], // Доступ к форме изменения параметров
+                'accessRoles' => ['@'], // Уровень доступа к форме изменения параметров
             ],
         ],
         //...
