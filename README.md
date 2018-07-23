@@ -307,8 +307,13 @@ class ConfigBehavior extends Behavior
         $array = Yii::$app->config->getAll();
         $replace = Params::getReplace();
         foreach ($replace as $key => $value) {
-            if (isset($app->{$key}))
-                $app->{$key} = ArrayHelper::getValue($array, $value);
+            if (isset($app->{$key})) {
+                if ($key == 'language' && YII_ENV_TEST) {
+                    $app->{$key} = $app->language;
+                } else {
+                    $app->{$key} = ArrayHelper::getValue($array, $value);
+                }
+            }
             if (isset($app->params[$key])) {
                 $app->params[$key] = ArrayHelper::getValue($array, $value);
             }
