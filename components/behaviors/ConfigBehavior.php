@@ -4,7 +4,7 @@ namespace modules\config\components\behaviors;
 
 use Yii;
 use yii\base\Behavior;
-use yii\console\Controller;
+use yii\base\Controller;
 use yii\web\Application;
 
 /**
@@ -19,14 +19,14 @@ class ConfigBehavior extends Behavior
     public function events()
     {
         return [
-            Controller::EVENT_BEFORE_ACTION => 'setConfig'
+            Controller::EVENT_BEFORE_ACTION => 'beforeAction'
         ];
     }
 
     /**
      * Set config
      */
-    public function setConfig()
+    public function beforeAction()
     {
         /** @var Application $app */
         $app = $this->owner;
