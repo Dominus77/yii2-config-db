@@ -6,7 +6,7 @@ use Yii;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 use modules\config\models\Config;
-use modules\config\models\ConfigParams;
+use modules\config\params\ConfigParams;
 use modules\config\Module;
 
 /**

@@ -22,4 +22,7 @@ return [
     'Select language ...' => 'Select language ...',
     'Success!' => 'Success!',
     'Error!' => 'Error!',
+
+    'You must specify the params[Params::class] class in the module settings.' => 'You must specify the params[Params::class] class in the module settings.',
+    'You must specify the params[\'accessRoles\'] in the module settings.' => 'You must specify the params[\'accessRoles\'] in the module settings.',
 ];

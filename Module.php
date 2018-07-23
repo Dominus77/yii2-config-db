@@ -12,10 +12,16 @@ use yii\console\Application as ConsoleApplication;
 class Module extends \yii\base\Module
 {
     /**
-     * Class Params extends \modules\config\models\ConfigParams
+     * Class Params extends \modules\config\params\ConfigParams
      * @var string
      */
-    public $paramsClass = 'modules\config\models\Params';
+    public $paramsClass = 'modules\config\params\Params';
+
+    /**
+     * Access for update
+     * @var array
+     */
+    public $accessRoles = ['@'];
 
     /**
      * {@inheritdoc}
@@ -32,7 +38,9 @@ class Module extends \yii\base\Module
         if (empty($this->params['paramsClass'])) {
             $this->params['paramsClass'] = $this->paramsClass;
         }
-
+        if (empty($this->params['accessRoles'])) {
+            $this->params['accessRoles'] = $this->accessRoles;
+        }
         if (Yii::$app instanceof ConsoleApplication) {
             $this->controllerNamespace = 'modules\config\console';
         }

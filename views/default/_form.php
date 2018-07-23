@@ -1,7 +1,7 @@
 <?php
 
 use yii\widgets\ActiveForm;
-use modules\config\models\ConfigParams;
+use modules\config\params\ConfigParams;
 use modules\config\Module;
 
 /* @var $this yii\web\View */

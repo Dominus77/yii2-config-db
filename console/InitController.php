@@ -18,7 +18,7 @@ class InitController extends Controller
 {
     use ModuleTrait;
 
-    /** @var \modules\config\models\ConfigParams $params */
+    /** @var \modules\config\params\ConfigParams $params */
     protected $params;
 
     /**
@@ -29,7 +29,7 @@ class InitController extends Controller
     public function beforeAction($action)
     {
         if (empty($this->getModule()->params['paramsClass'])) {
-            throw new InvalidConfigException(Module::t('module', 'You must specify the Params class in the module settings.'));
+            throw new InvalidConfigException(Module::t('module', 'You must specify the params[Params::class] class in the module settings.'));
         }
         $this->params = $this->getModule()->params['paramsClass'];
         return parent::beforeAction($action);

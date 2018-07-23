@@ -1,10 +1,10 @@
 <?php
 
-namespace modules\config\models;
+namespace modules\config\params;
 
 /**
  * Class Params
- * @package modules\config\models
+ * @package modules\config\params
  */
 class Params extends ConfigParams
 {
@@ -37,5 +37,13 @@ class Params extends ConfigParams
                 'default' => 'ru',
             ]
         ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getReplace()
+    {
+        return parent::getReplace();
     }
 }

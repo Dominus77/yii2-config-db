@@ -47,6 +47,9 @@ $config = [
     'modules' => [
         'config' => [
             'class' => 'modules\config\Module',
+            'params' => [
+                'accessRoles' => ['@'], // Доступ к форме изменения параметров
+            ],
         ],
         //...
     ],
@@ -95,8 +98,8 @@ $config = [
 
 Далее следует задать параметры которые будем хранить и изменять.
 
-Все параметры задаются в классе [[modules\config\models\Params]]. Данный класс наследуется от 
-[[modules\config\models\ConfigParams]] который реализует интерфейс [[modules\config\components\interfaces\ConfigInterface]].
+Все параметры задаются в классе [[modules\config\params\Params]]. Данный класс наследуется от 
+[[modules\config\params\ConfigParams]] который реализует интерфейс [[modules\config\components\interfaces\ConfigInterface]].
 
 Пример класса Params
 ```
@@ -105,7 +108,7 @@ $config = [
 namespace backend\models;
 
 use Yii;
-use modules\config\models\ConfigParams;
+use modules\config\params\ConfigParams;
 
 class Params extends ConfigParams
 {
@@ -141,7 +144,7 @@ class Params extends ConfigParams
 }
 ```
 Что бы подключить данный класс, следует указать его в конфигурации при подключении модуля.
-Если не указывать свой класс, то параметры будут браться из класса модуля [[modules\config\models\Params]].
+Если не указывать свой класс, то параметры будут браться из класса модуля [[modules\config\params\Params]].
 ```
 $config = [
     //...
@@ -186,7 +189,7 @@ $config = [
 namespace backend\models;
 
 use Yii;
-use modules\config\models\ConfigParams;
+use modules\config\params\ConfigParams;
 
 class Params extends ConfigParams
 {

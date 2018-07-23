@@ -1,13 +1,13 @@
 <?php
 
-namespace modules\config\models;
+namespace modules\config\params;
 
 use Yii;
 use modules\config\components\interfaces\ConfigInterface;
 
 /**
  * Class ConfigParams
- * @package modules\config\models
+ * @package modules\config\params
  */
 class ConfigParams implements ConfigInterface
 {
