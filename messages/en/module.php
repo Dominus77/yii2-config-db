@@ -16,7 +16,6 @@ return [
 
     'Site Name' => 'Site Name',
     'My Site' => 'My Site',
-    'The slogan under the name of the site' => 'The slogan under the name of the site',
     'Timezone' => 'Timezone',
     'Language' => 'Language',
     'Select language ...' => 'Select language ...',
