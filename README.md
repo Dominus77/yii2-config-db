@@ -417,5 +417,31 @@ $config = [
 ```
 php yii_test migrate/up -p=@modules/config/migrations
 ```
+Что бы включить модуль в процесс тестирования всего приложения, отредактируйте файл codeception.yml в корне приложения, добавив туда модуль.
+```
+# global codeception file to run tests from all apps
+include:
+    - common
+    - frontend
+    - backend
+    - modules/config
+paths:
+    log: console/runtime/logs
+settings:
+    colors: true
+```
+и выполните в корне приложения следующие консольные команды
+ 
+для Windows:
+```
+vendor\bin\codecept build
+vendor\bin\codecept run
+```
+для остальных систем:
+```
+vendor/bin/codecept build
+vendor/bin/codecept run
+``` 
+
 ## Лицензия
 The MIT License (MIT). Please see [License File](https://github.com/Dominus77/yii2-config-db/blob/master/LICENSE.md) for more information.
