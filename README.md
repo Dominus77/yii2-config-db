@@ -55,7 +55,7 @@ $config = [
     ],
     // Подключаем поведение для замены параметров конфигурации нашими параметрами
     'as beforeConfig' => [
-        'class' => '\modules\config\components\behaviors\ConfigBehavior',
+        'class' => '\modules\config\components\behaviors\ConfigBehavior',        
     ],
     //...    
 ];
@@ -87,7 +87,7 @@ $config = [
 $config = [    
     // Подключаем поведение для замены параметров конфигурации нашими параметрами
     'as beforeConfig' => [
-        'class' => '\modules\config\components\behaviors\ConfigBehavior',
+        'class' => '\modules\config\components\behaviors\ConfigBehavior',        
     ],
     //...    
 ];
@@ -161,9 +161,14 @@ $config = [
 ];
 
 ```
-После этого необходимо сохранить данные в базу данных с помощью консольной команды:
+После этого необходимо сохранить данные в базу данных с помощью консольноых команд:
 ```
+php yii config/init/down
 php yii config/init/up
+```
+или одной командой
+```
+php yii config/init/update
 ```
 Подробнее о консольных командах написано ниже.
 
@@ -279,6 +284,11 @@ use backend\models\Params;
 class ConfigBehavior extends Behavior
 {
     /**
+     * @var \modules\config\params\Params
+     */
+    public $paramsClass = '\modules\config\params\Params';
+        
+    /**
      * @inheritdoc
      */
     public function events()
@@ -305,7 +315,7 @@ class ConfigBehavior extends Behavior
     private function setParams(Application $app)
     {
         $array = Yii::$app->config->getAll();
-        $replace = Params::getReplace();
+        $replace = $this->paramsClass::getReplace();
         foreach ($replace as $key => $value) {
             if (isset($app->{$key})) {
                 if ($key == 'language' && YII_ENV_TEST) {
@@ -323,6 +333,17 @@ class ConfigBehavior extends Behavior
 
 ```
 Теперь параметры и ассоциации можно определять только в одном классе Params, всё остальное автоматически выполнит наше поведение.
+> Примечание: Данное поведение было добавлено [[modules\config\components\behaviors\ConfigAdvancedBehavior]]
+```
+$config = [    
+    // Подключаем поведение для замены параметров конфигурации нашими параметрами
+    'as beforeConfig' => [
+        'class' => '\modules\config\components\behaviors\ConfigAdvancedBehavior',
+        //'paramsClass'  => '\backend\models\Params',       
+    ],
+    //...    
+];
+```
 
 ### Консольные команды
 Для заполнения базы данных определенными параметрами в классе Params
@@ -333,6 +354,12 @@ php yii config/init/up
 ```
 php yii config/init/down
 ```
+Для обновления данных
+```
+php yii config/init/update
+
+```
+В этой команде совмещены две предыдущие, down и up
 > Примечание: Данные команды необходимо выполнять, для вступления в силу, каждый раз когда изменяется класс Params. 
 
 ### Ссылка на редактирование в backend

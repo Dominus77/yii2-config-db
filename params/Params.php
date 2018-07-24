@@ -44,6 +44,10 @@ class Params extends ConfigParams
      */
     public static function getReplace()
     {
-        return parent::getReplace();
+        return [
+            'name' => 'SITE_NAME',
+            'timeZone' => 'SITE_TIME_ZONE',
+            'language' => 'SITE_LANGUAGE',
+        ];
     }
 }

@@ -110,9 +110,10 @@ class DConfig extends Component
 
         $model->value = $value;
 
-        if ($model->save())
+        if ($model->save()) {
             $this->data[$key] = $value;
-        $this->clearCache($key);
+            $this->clearCache($key);
+        }
     }
 
     /**
@@ -123,8 +124,9 @@ class DConfig extends Component
         if (isset($params[0]) && is_array($params[0])) {
             foreach ($params as $item)
                 $this->createParameter($item);
-        } elseif ($params)
+        } elseif ($params) {
             $this->createParameter($params);
+        }
     }
 
     /**
@@ -137,9 +139,10 @@ class DConfig extends Component
         if (is_array($key)) {
             foreach ($key as $item)
                 $this->removeParameter($item);
-        } elseif ($key)
+        } elseif ($key) {
             $this->removeParameter($key);
-        $this->clearCache($key);
+        }
+
     }
 
     /**
@@ -172,8 +175,8 @@ class DConfig extends Component
         if (!empty($key)) {
             $model = Config::findOne(['param' => $key]);
             if ($model)
-                $model->delete();
-            $this->clearCache($key);
+                if ($model->delete())
+                    $this->clearCache($key);
         }
     }
 

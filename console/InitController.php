@@ -43,6 +43,7 @@ class InitController extends Controller
     {
         echo 'yii config/init/up' . PHP_EOL;
         echo 'yii config/init/down' . PHP_EOL;
+        echo 'yii config/init/update' . PHP_EOL;
     }
 
     /**
@@ -62,6 +63,17 @@ class InitController extends Controller
     {
         $params = ArrayHelper::getColumn($this->params::findParams(), 'param');
         Yii::$app->config->delete($params);
+        echo $this->log(true);
+    }
+
+    /**
+     * Update data config from the in database
+     */
+    public function actionUpdate()
+    {
+        $params = ArrayHelper::getColumn($this->params::findParams(), 'param');
+        Yii::$app->config->delete($params);
+        Yii::$app->config->add($this->params::findParams());
         echo $this->log(true);
     }
 
