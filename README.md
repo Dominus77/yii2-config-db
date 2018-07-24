@@ -12,7 +12,7 @@ git clone https://github.com/Dominus77/yii2-config-db.git modules/config
 ```
 Применить миграцию
 ```
-php yii migrate/up -p=modules/config/migrations
+php yii migrate/up -p=@modules/config/migrations
 
 ```
 
@@ -415,7 +415,7 @@ $config = [
 ### Тестирование
 При выполнении тестов приложения, выполните миграцию в тестовую базу
 ```
-php yii_test migrate/up -p=modules/config/migrations
+php yii_test migrate/up -p=@modules/config/migrations
 ```
 Что бы данные были актуальными при изменении класса Params, не забывайте производить обновление и в тестовой базе данных.
 ```
