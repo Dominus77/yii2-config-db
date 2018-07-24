@@ -424,6 +424,7 @@ include:
     - common
     - frontend
     - backend
+    - api
     - modules/config
 paths:
     log: console/runtime/logs
