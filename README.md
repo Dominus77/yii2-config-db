@@ -412,6 +412,14 @@ $config = [
 Файлы можно скопировать из модуля и изменить по своему желанию.
 
 После проделаных манипуляций, файлы вида модуля теперь будут браться из установленной нами темы, default.
-
+### Тестирование
+При выполнении тестов приложения, выполните миграцию в тестовую базу
+```
+php yii_test migrate/up -p=modules\config\migrations
+```
+Что бы данные были актуальными при изменении класса Params, не забывайте производить обновление и в тестовой базе данных.
+```
+php yii_test config/init/update
+``` 
 ## Лицензия
 The MIT License (MIT). Please see [License File](https://github.com/Dominus77/yii2-config-db/blob/master/LICENSE.md) for more information.
