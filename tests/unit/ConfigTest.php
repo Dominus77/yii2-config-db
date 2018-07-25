@@ -4,6 +4,7 @@ namespace modules\config\tests\unit;
 
 use Yii;
 use yii\base\InvalidConfigException;
+use modules\config\params\Params;
 use modules\config\models\Config;
 use modules\config\params\ConfigParams;
 
@@ -18,18 +19,21 @@ class ConfigTest extends \Codeception\Test\Unit
      */
     protected $tester;
 
+    public function testConfigParams()
+    {
+        $this->assertTrue(is_array(ConfigParams::findParams()));
+        $this->assertTrue(is_array(ConfigParams::getReplace()));
+    }
+
     /**
      * Check attributeLabels in the model Config
      */
     public function testCheckAttributeLabels()
     {
-        $attributes = [
-            'id', 'param', 'label',
-            'value', 'type', 'default',
-        ];
+        $params = Params::findParams();
         $model = new Config();
-        foreach ($attributes as $attribute) {
-            $this->assertArrayHasKey($attribute, $model->attributeLabels());
+        foreach ($params[0] as $key => $attribute) {
+            $this->assertArrayHasKey($key, $model->attributeLabels());
         }
     }
 

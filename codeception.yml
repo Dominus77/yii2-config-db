@@ -19,6 +19,7 @@ coverage:
     whitelist:
             include:
                 - models/*
+                - params/*
                 - components/DConfig.php
             exclude:
                 - messages/*
