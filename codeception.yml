@@ -12,4 +12,16 @@ settings:
 modules:
     config:
         Yii2:
+            cleanup: false
             configFile: 'tests/_config/test.php'
+coverage:
+    enabled: true
+    whitelist:
+            include:
+                - models/*
+                - components/DConfig.php
+            exclude:
+                - components/behaviors/*
+                - components/helpers/*
+                - messages/*
+                - views/*
