@@ -19,6 +19,21 @@ class ConfigTest extends \Codeception\Test\Unit
     protected $tester;
 
     /**
+     * Check attributeLabels in the model Config
+     */
+    public function testCheckAttributeLabels()
+    {
+        $attributes = [
+            'id', 'param', 'label',
+            'value', 'type', 'default',
+        ];
+        $model = new Config();
+        foreach ($attributes as $attribute) {
+            $this->assertArrayHasKey($attribute, $model->attributeLabels());
+        }
+    }
+
+    /**
      * This get default value
      */
     public function testGetDefaultValue()

@@ -21,7 +21,5 @@ coverage:
                 - models/*
                 - components/DConfig.php
             exclude:
-                - components/behaviors/*
-                - components/helpers/*
                 - messages/*
                 - views/*
