@@ -12,4 +12,4 @@ settings:
 modules:
     config:
         Yii2:
-            configFile: 'tests/config/test.php'
+            configFile: 'tests/_config/test.php'
