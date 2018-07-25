@@ -8,6 +8,14 @@ return yii\helpers\ArrayHelper::merge(
         'bootstrap' => [
             '\modules\config\Bootstrap',
         ],
+        'modules' => [
+            'config' => [
+                'class' => 'modules\config\Module',
+                'params' => [
+                    'accessRoles' => ['?'],
+                ],
+            ],
+        ],
         'components' => [
             'request' => [
                 'csrfParam' => '_csrf-frontend-test',
