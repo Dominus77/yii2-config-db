@@ -18,6 +18,9 @@ use modules\config\Module;
  */
 class Config extends \yii\db\ActiveRecord
 {
+    /**
+     * @var string
+     */
     const CACHE_KEY = 'dConfig';
 
     /**

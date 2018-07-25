@@ -5,10 +5,21 @@ return yii\helpers\ArrayHelper::merge(
     [
         'id' => 'module-config',
         'language' => 'en',
+        'bootstrap' => [
+            '\modules\config\Bootstrap',
+        ],
         'components' => [
             'request' => [
                 'csrfParam' => '_csrf-frontend-test',
                 'enableCsrfValidation' => false,
+            ],
+            'config' => [
+                'class' => 'modules\config\components\DConfig',
+                'duration' => 3600, // Время для кэширования
+            ],
+            'cache' => [
+                'class' => 'yii\caching\FileCache',
+                'cachePath' => '@console/runtime/cache',
             ],
         ],
     ]

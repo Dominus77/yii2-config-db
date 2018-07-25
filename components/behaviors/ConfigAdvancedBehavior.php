@@ -36,14 +36,19 @@ class ConfigAdvancedBehavior extends Behavior
     {
         /** @var Application $app */
         $app = $this->owner;
-        $this->setParams($app);
+        $this->processReplace($app);
+    }
+
+    public function setParams()
+    {
+        return true;
     }
 
     /**
      * Set params
      * @param Application $app
      */
-    private function setParams(Application $app)
+    private function processReplace(Application $app)
     {
         $array = Yii::$app->config->getAll();
         $replace = $this->paramsClass::getReplace();
