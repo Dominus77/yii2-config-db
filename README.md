@@ -1,6 +1,9 @@
 # yii2-config-db
 
-[![Software License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://github.com/Dominus77/yii2-config-db/blob/master/LICENSE.md)
+[![GitHub issues](https://img.shields.io/github/issues/Dominus77/yii2-config-db.svg)](https://github.com/Dominus77/yii2-config-db/issues)
+[![GitHub forks](https://img.shields.io/github/forks/Dominus77/yii2-config-db.svg)](https://github.com/Dominus77/yii2-config-db/network)
+[![GitHub stars](https://img.shields.io/github/stars/Dominus77/yii2-config-db.svg)](https://github.com/Dominus77/yii2-config-db/stargazers)
+[![GitHub license](https://img.shields.io/github/license/Dominus77/yii2-config-db.svg)](https://github.com/Dominus77/yii2-config-db/blob/master/LICENSE.md)
 
 Модуль для хранения, вывода и редактирования настроек приложения Yii2 в базе данных.
 
