@@ -4,6 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/Dominus77/yii2-config-db.svg)](https://github.com/Dominus77/yii2-config-db/network)
 [![GitHub stars](https://img.shields.io/github/stars/Dominus77/yii2-config-db.svg)](https://github.com/Dominus77/yii2-config-db/stargazers)
 [![GitHub license](https://img.shields.io/github/license/Dominus77/yii2-config-db.svg)](https://github.com/Dominus77/yii2-config-db/blob/master/LICENSE.md)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/Dominus77/yii2-config-db.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2FDominus77%2Fyii2-config-db)
 
 Модуль для хранения, вывода и редактирования настроек приложения Yii2 в базе данных.
 
