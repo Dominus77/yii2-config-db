@@ -1,5 +1,7 @@
 # yii2-config-db
 
+[![Software License](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat)](https://github.com/Dominus77/yii2-config-db/blob/master/LICENSE.md)
+
 Модуль для хранения, вывода и редактирования настроек приложения Yii2 в базе данных.
 
 > Примечание: Развертывание модуля описано на базе [yii2-advanced-start](https://github.com/Dominus77/yii2-advanced-start). 
