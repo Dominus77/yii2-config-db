@@ -1,3 +1,2 @@
-/vendor/
-composer.json
-/composer.loc
+/vendor
+composer.loc

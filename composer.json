@@ -1,0 +1,32 @@
+{
+    "name": "dominus77/yii2-config-db",
+    "description": "Module for storing, outputting and editing the settings of the Yii2 application in the database.",
+    "type": "yii2-extension",
+    "keywords": ["dominus77","yii2","extension","module","yii2-config-db"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Schevchenko",
+            "email": "ivanovosity@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.15"
+    },
+    "require-dev": {
+        "codeception/base": "~2.3.8",
+        "codeception/verify": "~0.3.1",
+        "codeception/specify": "~0.4.3"
+    },
+    "repositories":[
+        {
+          "type": "composer",
+          "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "modules\\config\\": ""
+        }
+    }
+}
