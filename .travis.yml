@@ -14,11 +14,6 @@ install:
 before_install:
   - sudo pip install codecov
 
-before_script:
-  - travis_retry composer self-update
-  - travis_retry composer install --no-interaction --prefer-source --dev
-  - composer install --dev
-
 script:
   - php init --env=Development --overwrite=n
   - mysql -e 'CREATE DATABASE yii2_advanced_start_test;'
